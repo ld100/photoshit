@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-# gem 'nokogiri'
-# gem 'rack', '~>1.1'
 # gem 'rspec', :require => 'spec'
-gem 'rmagick', '~>2.15.4'
+gem 'rake', '~> 10.5'
+gem 'rmagick', '~> 2.15', '>= 2.15.4'
