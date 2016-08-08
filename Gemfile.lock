@@ -10,6 +10,3 @@ PLATFORMS
 DEPENDENCIES
   rake (~> 10.5)
   rmagick (~> 2.15, >= 2.15.4)
-
-BUNDLED WITH
-   1.11.2
