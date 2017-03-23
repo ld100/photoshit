@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-# gem 'rspec', :require => 'spec'
+gem 'rspec', :require => 'spec'
 gem 'rake', '~> 11.2', '>= 11.2.2'
 # gem 'rmagick', '~> 2.15', '>= 2.15.4'
 gem 'mini_magick', '~> 4.5', '>= 4.5.1'
