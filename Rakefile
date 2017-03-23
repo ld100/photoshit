@@ -8,16 +8,14 @@ task default: %w[process]
 # end
 
 task :process do
-    require File.expand_path(File.dirname(__FILE__) + '/settings')
-    require File.expand_path(File.dirname(__FILE__) + '/photo_processor')
+    require_relative 'lib/watahmark.rb'
 
-    pp = PhotoProcessor.new
-    pp.source = $source
-    pp.destination = $destination
-    pp.watermark_text = $watermark_text
-    puts "Processing photos..."
-    pp.process
-    puts "Done."
+    source_dir = ENV['source_dir']
+    destination_dir = ENV['destination_dir']
+    watermark_text = ENV['watermark_text']
+
+    watahmark = Watahmark.new(source_dir, destination_dir, watermark_text)
+    watahmark.process
 end
 
 task :cleanup do

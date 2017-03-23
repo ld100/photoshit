@@ -1,3 +1,4 @@
 .DS_Store
-source/*
-destination/*
+source/*.jpg
+destination/*.jpg
+gem_example

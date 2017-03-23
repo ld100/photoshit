@@ -7,7 +7,7 @@ Resizes and watermarks photos for public access
 * ImageMagick
 * GhostScript
 
-`brew install ghostscript imagemagick`
+`brew install ghostscript imagemagick graphicsmagick`
 `bundle install`
 
 ## Running the Application

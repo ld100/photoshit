@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+require 'rubygems'
+require 'bundler/setup'
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = "Usage: watahmark [options]"
+
+  opts.on('-s', '--source_dir DIR', 'Source directory') { |v| options[:source_dir] = v }
+  opts.on('-d', '--destination_dir DIR', 'Destination directory') { |v| options[:destination_dir] = v }
+  opts.on('-w', '--watermark_text TEXT', 'Watermark text') { |v| options[:watermark_text] = v }
+
+end.parse!
+
+
+require_relative '../lib/watahmark.rb'
+watahmark = Watahmark.new(options[:source_dir], options[:destination_dir], options[:watermark_text])
+watahmark.process

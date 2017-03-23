@@ -1,12 +1,17 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    rake (10.5.0)
-    rmagick (2.15.4)
+    mini_magick (4.6.1)
+    rake (11.2.2)
+    settingslogic (2.0.9)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  rake (~> 10.5)
-  rmagick (~> 2.15, >= 2.15.4)
+  mini_magick (~> 4.5, >= 4.5.1)
+  rake (~> 11.2, >= 11.2.2)
+  settingslogic (~> 2.0, >= 2.0.9)
+
+BUNDLED WITH
+   1.13.7

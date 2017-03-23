@@ -1,0 +1,16 @@
+common: &common_settings
+    application_name: "watahmark"
+    source_dir: "source"
+    destination_dir:  "destination"
+    watermark_text: "Dummy Watermark"
+
+development:
+    <<: *common_settings
+    watermark_text: "© Alexander Lockshyn | emotionalphoto.com"
+
+testing:
+    <<: *common_settings
+
+production:
+    <<: *common_settings
+    watermark_text: " © Alexander Lockshyn | travelfreak.ru"
