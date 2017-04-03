@@ -5,6 +5,13 @@ require "bundler/setup"
 require "settingslogic"
 
 class Settings < Settingslogic
-  source File.join(File.expand_path("./", Dir.pwd), "config", "app.yml")
+  local_conf = File.join(Dir.pwd, "config", "watahmark.yml")
+  if File.exists?(local_conf)
+    source local_conf
+  else
+    conf_dir = File.join(File.expand_path("..", File.dirname(File.dirname(__FILE__))), "config")
+    # source File.join(File.expand_path("./", Dir.pwd), conf_dir, "app.yml")
+    source File.join(conf_dir, "app.yml")
+  end
   namespace ENV["APP_ENV"] || "production"
 end

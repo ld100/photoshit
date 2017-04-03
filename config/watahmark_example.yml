@@ -1,0 +1,13 @@
+common: &common_settings
+    source_dir: "source"
+    destination_dir:  "destination"
+    watermark_text: "Dummy Watermark"
+
+development:
+    <<: *common_settings
+
+testing:
+    <<: *common_settings
+
+production:
+    <<: *common_settings
