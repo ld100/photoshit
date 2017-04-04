@@ -9,20 +9,29 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'watahmark'
 
 options = {}
-OptionParser.new do |opts|
+opts_parser = OptionParser.new do |opts|
   opts.banner = "Usage: watahmark [options]"
+  opts.separator  ""
+  opts.separator  "Options"
 
-  opts.on('-s', '--source_dir DIR', 'Source directory') { |v| options[:source_dir] = v }
-  opts.on('-d', '--destination_dir DIR', 'Destination directory') { |v| options[:destination_dir] = v }
-  opts.on('-w', '--watermark_text TEXT', 'Watermark text') { |v| options[:watermark_text] = v }
-  opts.on('-p', '--prepare_dir DIR', 'Prepare directory') { |v| options[:target_dir] = v }
-end.parse!
+  opts.on('-p', '--process', 'Process photos in `source` directory') { |v| options[:process] = true }
+  opts.on('-i', '--init DIR', 'create initial directories and config file') { |v| options[:target_dir] = v }
+  # opts.on('-w', '--watermark_text TEXT', 'Watermark text') { |v| options[:watermark_text] = v }
+  opts.on("-h","--help","help") do
+    puts opts_parser
+    puts "\n"
+  end
+end
+opts_parser.parse!
 
-
-watahmark = Watahmark::Watahmark.new(options[:source_dir], options[:destination_dir], options[:watermark_text])
-if options[:target_dir]
-    watahmark.target_dir = options[:target_dir]
-    watahmark.prepare_dir
+if options[:process]
+  watahmark = Watahmark::Watahmark.new(nil, nil, nil)
+  watahmark.process
+elsif options[:target_dir]
+  watahmark = Watahmark::Watahmark.new(nil, nil, nil)
+  watahmark.target_dir = options[:target_dir]
+  watahmark.prepare_dir
 else
-    watahmark.process
+  puts opts_parser
+  puts "\n"
 end
