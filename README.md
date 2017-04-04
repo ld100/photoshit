@@ -1,4 +1,4 @@
-# Photo Shit Application
+# Photo Shit / Watahmark Application
 
 Resizes and watermarks photos for public access
 
@@ -7,7 +7,13 @@ Resizes and watermarks photos for public access
 * ImageMagick
 * GhostScript
 
+On Mac:
+
 `brew install ghostscript imagemagick graphicsmagick`
+`bundle install`
+
+On Linux:
+`sudo apt-get install imagemagick`
 `bundle install`
 
 ## Running the Application

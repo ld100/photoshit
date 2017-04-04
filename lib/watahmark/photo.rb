@@ -8,7 +8,8 @@ class Photo
   def initialize(source_path, destination_path, watermark_text, length=1200)
     @source_path = source_path
     @destination_path = destination_path
-    @watermark = watermark_text
+    # Adding padding with right side of the photo
+    @watermark = watermark_text + "  "
     @length = length
 
     @image = MiniMagick::Image.open(@source_path)
@@ -33,7 +34,7 @@ class Photo
   # TODO: Fetch watermark settings from external config
   # instead of hardcoding them here
   def put_watermark
-    watermark_background_width = (@watermark.size*11*0.96).to_i
+    watermark_background_width = (@watermark.size*14*0.96).to_i
     watermark_background_height = 30
     top_x = @image.width - watermark_background_width
     top_y = @image.height - watermark_background_height
@@ -50,10 +51,10 @@ class Photo
     @image.combine_options do |c|
       c.gravity "SouthEast"
       c.pointsize "20"
-      c.font "Tahoma"
-      c.draw "text 7,7 '#{@watermark}'"
+      # c.font "Tahoma"
+      c.draw "text 3,3 '#{@watermark}'"
       c.fill "#efefef"
-      c.draw "text 6,6 '#{@watermark}'"
+      c.draw "text 2,2 '#{@watermark}'"
       c.fill "gray"
     end
   end
