@@ -11,7 +11,6 @@ module Watahmark
       source local_conf
     else
       conf_dir = File.join(File.expand_path("..", File.dirname(File.dirname(__FILE__))), "config")
-      # source File.join(File.expand_path("./", Dir.pwd), conf_dir, "app.yml")
       source File.join(conf_dir, "app.yml")
     end
     namespace ENV["APP_ENV"] || "production"

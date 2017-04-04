@@ -1,4 +1,16 @@
+/.bundle/
+/.yardoc
+/Gemfile.lock
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/tmp/
 .DS_Store
 source/*.jpg
 destination/*.jpg
-gem_example
+*.gem
+
+# rspec failure tracking
+.rspec_status

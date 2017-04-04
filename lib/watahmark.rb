@@ -36,7 +36,7 @@ module Watahmark
       Dir.mkdir(source_path) unless File.exists?(source_path)
       Dir.mkdir(destination_path) unless File.exists?(destination_path)
 
-      sample_config_path = File.join(File.expand_path("./", Dir.pwd), "config", "watahmark_example.yml")
+      sample_config_path = File.expand_path('../config/watahmark_example.yml', File.dirname(__FILE__))
       FileUtils.cp(sample_config_path, config_path)
       File.rename(File.join(config_path, "watahmark_example.yml"), File.join(config_path, "watahmark.yml"))
       puts "Done."
