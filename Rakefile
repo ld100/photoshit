@@ -13,16 +13,7 @@ rescue LoadError
   puts "WAT?"
 end
 
-task default: %w[process]
-
-task :process do
-    source_dir = ENV["source_dir"]
-    destination_dir = ENV["destination_dir"]
-    watermark_text = ENV["watermark_text"]
-
-    watahmark = Watahmark::Watahmark.new(source_dir, destination_dir, watermark_text)
-    watahmark.process
-end
+task default: %w[spec]
 
 task :cleanup do
     puts "Cleaning up `Destination` directory..."
