@@ -4,6 +4,10 @@ require 'optparse'
 require 'rubygems'
 require 'bundler/setup'
 
+lib = File.expand_path('../../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'watahmark'
+
 options = {}
 OptionParser.new do |opts|
   opts.banner = "Usage: watahmark [options]"
@@ -12,12 +16,10 @@ OptionParser.new do |opts|
   opts.on('-d', '--destination_dir DIR', 'Destination directory') { |v| options[:destination_dir] = v }
   opts.on('-w', '--watermark_text TEXT', 'Watermark text') { |v| options[:watermark_text] = v }
   opts.on('-p', '--prepare_dir DIR', 'Prepare directory') { |v| options[:target_dir] = v }
-
 end.parse!
 
 
-require_relative '../lib/watahmark.rb'
-watahmark = Watahmark.new(options[:source_dir], options[:destination_dir], options[:watermark_text])
+watahmark = Watahmark::Watahmark.new(options[:source_dir], options[:destination_dir], options[:watermark_text])
 if options[:target_dir]
     watahmark.target_dir = options[:target_dir]
     watahmark.prepare_dir
